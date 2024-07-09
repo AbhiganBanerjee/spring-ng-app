@@ -21,19 +21,19 @@ export class SpringApiService{
     defined as Observable because its an async method */
     GetAllGames():Observable<any[]>{
         //use the http reference to make a GET mode API call
-        return this.http.get<any[]>(`http://localhost:8080/getGames`);
+        return this.http.get<any[]>(`https://sb-ng-api.onrender.com/getGames`);
     }
     
     /*Add the method to get all the categories of games as Array of String from Spring API
     defined as Observable because its an async method */
     GetAllCategories():Observable<string[]>{
         //use the http reference get method and return the string[]
-        return this.http.get<string[]>(`http://localhost:8080/getCategories`);
+        return this.http.get<string[]>(`https://sb-ng-api.onrender.com/getCategories`);
     }
 
     /*Add the method to get games based on a proper category passed as the query parameter*/
     GetGamesByCategory(category:string):Observable<any[]>{
         //return games based on the category parameter
-        return this.http.get<any[]>(`http://localhost:8080/onCategoryGames?category=${category}`);
+        return this.http.get<any[]>(`https://sb-ng-api.onrender.com/onCategoryGames?category=${category}`);
     }
 }
