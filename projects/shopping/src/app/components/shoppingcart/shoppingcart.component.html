@@ -1,0 +1,86 @@
+<div class="container-fluid">
+    <header class="bg-danger text-white text-center p-2 mt-2"> 
+        <h1 class="font-monospace fw-bold fst-italic"><span class="bi bi-cart4"></span> Shopping Online</h1>
+    </header>
+    <section class="mt-2 row">
+        <nav class="col-2">
+            <div>
+                <label class="form-label font-monospace fw-bold">Select a Category</label>
+            </div>
+            <div>
+                <!-- $event is used to send both event related and element related info -->
+                <select (change)="HandleCategoryChange($event)" class="form-select font-monospace">
+                    <!-- Load all the categories as option from the API -->
+                    <!-- Repeat the options based on categories array -->
+                    <option *ngFor="let category of categories" [value]="category">
+                        {{category.toUpperCase()}}
+                    </option>
+                </select>
+            </div>
+        </nav>
+        <main class="col-7">
+            <!-- All the fetched product details will be displayed here in main -->
+            <div class="d-flex flex-wrap overflow-auto" style="height: 500px;">
+                <!-- Repeat the card to display each product -->
+                <div *ngFor="let product of products" class="card p-2 m-2 font-monospace" style="width: 200px;">
+                    <img class="card-img-top" [src]="product.image" height="150px"/>
+                    <div class="card-header" style="height: 160px;">
+                        <p>{{product.title}}</p>
+                    </div>
+                    <div class="card-body">
+                        <dl>
+                            <dt>Price</dt>
+                            <dd>{{product.price}}</dd>
+                            <dt>Rating</dt>
+                            <dd><span class="bi bi-star-fill text-success"></span> {{product.rating.rate}} [{{product.rating.count}}]</dd>
+                        </dl>
+                    </div>
+                    <div class="card-footer">
+                        <button (click)="AddToCartClick(product.id)" class="btn btn-danger w-100 font-monospace fw-bold">
+                            <span class="bi bi-cart2"> Add to Cart</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <aside class="col-3 mt-2 text-center">
+            <!-- On showclick we will toogle between tableBlock and voidBlock -->
+            <button (click)="ShowCartClick()" class="btn btn-warning w-100 font-monospace">
+                <!-- Display the number of items present in cart -->
+                <span class="bi bi-cart-fill"></span> Your Cart [{{cartCount}}]
+            </button>
+            <!-- If we click Your cart once it will show the cart details, and if we click
+            again it will again hide the cart details, so conditionally we are rendering -->
+            <div *ngIf="blockFlag; then tableBlock else voidBlock"></div>
+            <ng-template  #tableBlock>
+                <!-- in the tableBlock will display the cartItems, each product in table -->
+                <table class="table table-hover table table-striped font-monospace overflow-auto">
+                    <thead>
+                        <tr>
+                            <th>Preview</th>
+                            <th>Price</th> 
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Repeating table rows, for each of the product or item in the cartItems array -->
+                        <tr *ngFor="let item of cartItems">
+                            <td>
+                                <img height="55" [src]="item.image"/>
+                            </td>
+                            <td>{{item.price}}</td>
+                            <td>
+                                <!-- On this delete button click product should be removed from cartItems[] -->
+                                <button (click)="DeleteClick(item.id)" class="btn btn-danger"><span class="bi bi-trash-fill"></span></button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </ng-template>
+            <ng-template #voidBlock>
+                <!-- Empty void block will show only a message -->
+                <p class="text-center font-monospace fw-light fs-6">Click on above button to see Cart Items.</p>
+            </ng-template>
+        </aside>
+    </section>
+</div>

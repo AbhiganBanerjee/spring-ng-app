@@ -1,0 +1,16 @@
+<div>
+    <!-- Display the value entered in the text-box in InputDemo parent component -->
+    <p>Hello! {{UserName}}</p>
+    
+    <!-- Display wheather change is detected or not that message -->
+    <h2>{{msg}}</h2>
+
+    <!-- Display those prev and current values of SimpleChanges object -->
+    <dl>
+        <dt>Current Value</dt>
+        <dd>{{CurrentValue}}</dd>
+    
+        <dt>Previous Value</dt>
+        <dd>{{(PreviousValue == undefined)?"Undefined":PreviousValue}}</dd>
+    </dl>
+</div>

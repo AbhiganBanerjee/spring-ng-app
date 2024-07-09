@@ -1,0 +1,10 @@
+<div class="container-fluid">
+    <h2>Register User</h2>
+    <dl class="w-25">
+        <dt>User Name</dt>
+        <dd><input [(ngModel)]="UserName" (keyup)="VerifyUser()" type="text" class="form-control"></dd>
+        
+        <!-- Dynamically change the class for the text -->
+        <dd [ngClass]="{'text-success':IsSuccess, 'text-danger':IsDanger}"><b>{{msg}}</b></dd>
+    </dl>
+</div>

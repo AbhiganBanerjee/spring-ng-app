@@ -1,0 +1,45 @@
+<div class="container-fluid mt-2">
+    <div class="row">
+        <div class="col-3">
+            <form (submit)="RegisterClick(frmRegister.value)" name="frmRegister" #frmRegister="ngForm">
+                <dl>
+                    <dt>Name</dt>
+                    <!-- Perfomr 2-way binding to attach and bind textbox value with Name -->
+                    <dd><input ngModel  class="form-control" name="Name"  type="text"></dd>
+                    <dt>Price</dt>
+                    <dd><input ngModel #Price="ngModel"  class="form-control" name="Price"  type="number"></dd>
+                    <dt>Stock</dt>
+                    <dd class="form-switch"> 
+                        <input ngModel #Stock="ngModel" type="checkbox" name="Stock" class="form-check-input"> Available
+                    </dd>
+                    <dt>City</dt>
+                    <dd>
+                        <select ngModel #City="ngModel" name="City"  class="form-select">
+                            <option>Hyd</option>
+                            <option>Delhi</option>
+                        </select>
+                    </dd>
+                </dl>
+                <!-- The button will be disabled untill and unless we provide some proper name -->
+                <button type="submit" [disabled]="frmRegister.invalid" class="btn btn-primary w-100">Register</button>
+            </form>
+        </div>
+        <div class="col-9">
+            <h2>Product Details</h2>
+            <dl class="row">
+                <dt>Name</dt>
+                <!-- We are accessing each value from "frmRegister.value" reference -->
+
+                <!-- We can also refer them {Name.value} that is individual reference -->
+                <dd>{{frmRegister.value.Name}}</dd>
+                <dt>Price</dt>
+                <dd>{{frmRegister.value.Price}}</dd>
+                <dt>Stock</dt>
+                <dd>{{(frmRegister.value.Stock==true)?"Available":"Out of Stock"}}</dd>
+                <dt>City</dt>
+                <!-- We are accessing by individual City element reference -->
+                <dd>{{City.value}}</dd>
+            </dl>
+        </div>
+    </div>
+</div>

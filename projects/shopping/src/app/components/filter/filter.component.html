@@ -1,0 +1,30 @@
+<!-- Generate a Filter component seperately -->
+<div>
+    <ul class="list-unstyled"> 
+        <li>
+            <!-- So for each category click, trigger the event to 
+            emit the category name value to product component -->
+            <button (click)="ButtonClicked($event)" name="electronics" class="btn btn-link">Electronics [{{ElectronicsCount}}]</button>
+            <button (click)="ButtonClicked($event)" name="jewelery" class="btn btn-link">Jewelery [{{JeweleryCount}}]</button>
+            <button (click)="ButtonClicked($event)" name="men's clothing" class="btn btn-link">Men's Clothing [{{MenCount}}]</button>
+            <button (click)="ButtonClicked($event)" name="women's clothing" class="btn btn-link">Women's Clothing [{{WomenCount}}]</button>
+        </li>
+    </ul>
+    <select (change)="FilterChanged($event)" class="form-select">
+        <option value="all">All</option>
+        <option value="electronics">Electronics [{{ElectronicsCount}}]</option>
+        <option value="jewelery">Jewelery [{{JeweleryCount}}]</option>
+        <option value="men's clothing">Men's Clothing [{{MenCount}}]</option>
+        <option value="women's clothing">Women's Clothing [{{WomenCount}}]</option>
+    </select>
+
+    <!-- Via checkboxes perform the filtering -->
+    <ul class="list-unstyled mt-4">
+        <li>
+            <input (change)="CheckChange($event)" type="checkbox" value="electronics" /> Electronics [{{ElectronicsCount}}]<br/>
+            <input (change)="CheckChange($event)" type="checkbox" value="jewelery"> Jewelery [{{JeweleryCount}}]<br/>
+            <input (change)="CheckChange($event)" type="checkbox" value="men's clothing"> Men's Clothing [{{MenCount}}]<br/>
+            <input (change)="CheckChange($event)" type="checkbox" value="women's clothing"> Women's Clothing [{{WomenCount}}]<br/>
+        </li>
+    </ul>
+</div>

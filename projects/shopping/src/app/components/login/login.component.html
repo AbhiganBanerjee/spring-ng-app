@@ -1,0 +1,31 @@
+<!-- Here we require to write the Markup -->
+<div class="box">
+    <!-- We can use the title property here, as we have linked with templateUrl -->  
+    <form class="font-monospace border border3 border-primary p-3 rounded rounded-4">
+        <h2><span class="bi bi-person-fill"></span>{{title}}</h2> 
+        <div class="mb-3">
+            <label class="form-label" for="UserName">User Name</label>
+            <div>
+                <input class="form-control" name="UserName" type="text"/>
+            </div>
+        </div>
+        <div class="mb-3">
+            <label class="form-lable" for="password">User Password</label>
+            <div>
+                <input class="form-control" name="password"  type="password"/>
+            </div>
+        </div>
+        <!-- We are generating unique Code as Captcha using Services -->
+        <div class="mb-3">
+            <!-- On Refresh Click every time the Code will refresh with a new one -->
+            <label for="" class="form-label">Verify Code <button (click)="NewCode()" class="btn"><span class="bi bi-arrow-clockwise"></span></button></label>
+            <div>
+                <!-- Display the random code here -->
+                {{Code}}
+            </div>
+        </div>
+        <div class="mb-3"> 
+            <button class="btn btn-primary w-100">Login</button>
+        </div>
+    </form>
+</div>

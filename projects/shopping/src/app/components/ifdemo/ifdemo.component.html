@@ -1,0 +1,32 @@
+<div class="container-fluid fw-bold font-monospace">
+    <h2>Product Details</h2>
+    <dl>
+        <dt>Title</dt>
+        <dd>{{Product.title}}</dd>
+
+        <!-- On toggling preview will come, and again toogling details will come -->
+        <dt class="form-switch mb-3">
+            <!-- Make the checkbox dynamic to get dynamic object value -->
+            <input name="toggle" ngModel #toggle="ngModel" class="form-check-input" type="checkbox" />Toggle Preview / Details
+        </dt>
+        <dd>
+            <!-- Dynamically switch based on the toogle checked value true or false -->
+           <div *ngIf="toggle.value; then previewBlock else detailsBlock"></div>
+           <!-- This preView will come on then condition i.e on true -->
+           <ng-template class="mt-3" #previewBlock>
+                <!-- use property binding to bind the src of image from product json -->
+                <img [src]="Product.image" width="200" height="200">
+           </ng-template>
+           <!-- This details will come on else condition i.e on false -->
+           <ng-template class="mt-3" #detailsBlock>
+               <dl>
+                    <dt>Price</dt>
+                    <dd>{{Product.price}}</dd>
+                    <dt>Rating</dt>
+                    <dd><span class="bi bi-star-fill text-success"></span> {{Product.rating.rate}} [{{Product.rating.count}}]</dd>
+               </dl>
+           </ng-template>
+        </dd>
+    </dl>
+</div>
+

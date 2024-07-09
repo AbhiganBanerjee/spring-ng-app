@@ -1,0 +1,26 @@
+<div class="container-fluid row">
+    <nav class="col-3">
+        <!-- We need to re-use the Filter component here under the nav bar -->
+        <!-- Pass all the input properties for app-filter component -->
+        <!-- Access the Custom event in the app-filter component to get Category name -->
+        <app-filter 
+            (FilterClicked)="CategoryChanged($event)"
+            (ChangeFilter)="FilterProduct($event)"
+            (CheckBoxFilter)="CheckFilter($event)"
+
+            [ElectronicsCount]="ElectronicsCount"   [JeweleryCount]="JeweleryCount"
+            [MenCount]="MenCount"   [WomenCount]="WomenCount"
+        />
+    </nav>
+    <main class="col-9">
+        <div class="d-flex flex-wrap overflow-auto" style="height: 500px;">
+            <!-- Repeat the Cards for each item in the Products collection -->
+            <div *ngFor="let item of Products" class="card m-2 p-2" style="width: 200px;">
+                <img [src]="item.image" height="180" class="card-img-top">
+                <div class="card-header" style="height: 160px;">
+                    <p>{{item.title}}</p>
+                </div>
+            </div>
+        </div>
+    </main> 
+</div>

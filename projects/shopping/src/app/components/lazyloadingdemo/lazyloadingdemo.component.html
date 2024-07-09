@@ -1,0 +1,19 @@
+<div class="container-fluid w-50">
+    <h2>Traditional Iterator</h2>
+    <div style="height: 200px;" class="border border-3 border-primary p-2 overflow-auto">
+        <ul class="list-unstyled">
+            <!-- The img inside the list item will be repeated so we use the ngFor -->
+            <li *ngFor="let item of Products">
+                <img [src]="item.image" width="100" height="100">
+            </li>
+        </ul>
+    </div><hr/>
+    <h2>Virtual Scrolling</h2>
+    <cdk-virtual-scroll-viewport itemSize="100" style="height: 250px;border: 2px solid black; padding: 10px;">
+        <ul class="list-unstyled"> 
+            <li *cdkVirtualFor="let item of Products">
+                <img [src]="item.image" width="100" height="100">
+            </li>
+        </ul>
+    </cdk-virtual-scroll-viewport>
+</div>

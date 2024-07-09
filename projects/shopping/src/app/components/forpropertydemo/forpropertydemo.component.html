@@ -1,0 +1,36 @@
+<div class="container-fluid">
+    <h2>Add New</h2>
+    <button (click)="Add()" class="btn btn-primary">Add</button>
+
+    <h2>Products Table</h2>
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Price</th>
+                <th>Index</th>
+                <th>First</th>
+                <th>Last</th>
+                <th>Even</th>
+                <th>Odd</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- This row will repeat for every element in the Product array -->
+            <!-- Assign class dynamically based on odd and even occurances -->
+            <tr [ngClass]="{'odd-style':o,'even-style':e}" *ngFor="let item of Products; let i = index;let f = first; let l = last; let e = even; let o = odd; trackBy:TrackChanges">
+                <td>{{item.Name}}</td>
+                <td>{{item.Price}}</td>
+                <td>{{i}}</td>
+                <td>{{f}}</td>
+                <td>{{l}}</td>
+                <td>{{e}}</td>
+                <td>{{o}}</td>
+                <td>
+                    <button class="btn btn-danger"><span class="bi bi-trash-fill"></span></button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

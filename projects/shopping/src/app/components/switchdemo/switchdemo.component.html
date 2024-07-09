@@ -1,0 +1,57 @@
+<div class="container-fluid">
+    <h2>Switch Demo</h2>
+    <button (click)="ButtonClick($event)" name="Login" class="btn btn-primary font-monospace fw-bold ">Login</button><br/><br/>
+    <button (click)="ButtonClick($event)" name="Register" class="btn btn-warning font-monospace fw-bold ">Register</button><br/><br/>
+    <button (click)="ButtonClick($event)" name="Change Password" class="btn btn-success font-monospace fw-bold">Change Password</button>
+    <hr/>
+
+    <div [ngSwitch]="CaseName">
+        <div *ngSwitchCase="'Login'">
+            <!-- Create a Login template -->
+            <form class="font-monospace fw-bold form-control w-25">  
+                <h3 class="text-center">User Login</h3><br/>
+                <dl>
+                    <dt>UserName</dt>
+                    <dd><input type="text" class="form-control w-100"></dd>
+                    <dt>Password</dt>
+                    <dd><input type="password" class="form-control w-100"></dd>
+                </dl>
+                <div class="text-center">
+                    <button class="btn btn-danger">Login</button>
+                </div>
+            </form>
+        </div>
+        <div *ngSwitchCase="'Register'">
+            <!-- Create a Register template -->
+            <form class="font-monospace fw-bold form-control w-25">  
+                <h3 class="text-center">User Register</h3><br/>
+                <dl>
+                    <dt>Email</dt>
+                    <dd><input type="email" class="form-control w-100"></dd>
+                    <dt>Password</dt>
+                    <dd><input type="password" class="form-control w-100"></dd>
+                    <dt>Mobile No.</dt>
+                    <dd><input type="tel" class="form-control w-100"></dd>
+                </dl>
+                <div class="text-center">
+                    <button class="btn btn-danger">Register</button>
+                </div>
+            </form>
+        </div>
+        <div *ngSwitchCase="'Change Password'">
+            <!-- Create a Change Password template -->
+            <form class="font-monospace fw-bold form-control w-25">  
+                <h3 class="text-center">Update Password</h3><br/>
+                <dl>
+                    <dt>Old Password</dt>
+                    <dd><input type="password" class="form-control w-100"></dd>
+                    <dt>New Password</dt>
+                    <dd><input type="password" class="form-control w-100"></dd>   
+                </dl>
+                <div class="text-center">
+                    <button class="btn btn-danger">Update</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

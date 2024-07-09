@@ -1,0 +1,60 @@
+<div class="container-fluid">
+    <h2>Tuitorial Nested DL and Dt</h2>
+    <dl>
+        <!--We can not repeat both dt or dd, or dl also  -->
+        <!-- for that we are taking another container in dl -->
+        <ng-container *ngFor="let item of topics">
+            <dt>
+                <!-- Title must be displayed as data-term -->
+                {{item.Title}}
+            </dt>
+            <dd>
+                <!-- Definitions will be displayed here -->
+                {{item.Definition}}
+            </dd>
+        </ng-container>
+    </dl>
+
+    <h2>Tuitorial Nested Details and Summary</h2>
+    <details *ngFor="let item of topics">
+        <summary>{{item.Title}}</summary>
+        <p>{{item.Definition}}</p>
+    </details>
+
+    <h2>Tuitorial Nested Fieldset and Legends</h2>
+    <fieldset *ngFor="let item of topics">
+        <legend>{{item.Title}}</legend>
+        <p>{{item.Definition}}</p>
+    </fieldset>
+
+    <h2>Menu Nested List</h2>
+    <ol>
+        <!-- Repeat the list items from menu array-->
+        <li *ngFor="let item of menu">
+            <!-- This each "item" is an object with 2 properties 
+            category and products array -->
+            <!-- Here only display the category name -->
+            {{item.Category}}
+
+            <!-- So create another unordered list in this list item -->
+            <ul>
+                <!-- This list item will repeat based on the 
+                "procuts array" present in item object -->
+                <li *ngFor="let product of item.Products">
+                    {{product}}
+                </li>
+            </ul>
+        </li>
+    </ol>
+    <h2>Menu Nested Drop-Down</h2>
+    <select>
+        <!-- optgroup has to repeat -->
+        <!-- Category name as label of the "<optgroup>" --> 
+        <optgroup *ngFor="let item of menu" [label]="item.Category">
+            <!-- Repeat each product of products array as option -->
+            <option [value]="product" *ngFor="let product of item.Products">
+                {{product.toUpperCase()}}
+            </option>
+        </optgroup>
+    </select>
+</div>

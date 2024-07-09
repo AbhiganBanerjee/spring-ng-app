@@ -1,0 +1,8 @@
+<!-- Passign $event argument to access the mouse's clientX and clientY properties from event argument -->
+<div (mousemove)="MouseMove($event)" class="container-fluid d-flex justify-content-center align-items-center" style="height: 500px;">
+    <p>Move mouse pointer to test</p>
+    <div style="height: 1000px;"></div>
+    <!-- Applyting dynamically the configured styleObj, so that the position moves -->
+    <img [ngStyle]="styleObject" src="assets/netflixback.png" width="50" height="50">
+</div>
+ 

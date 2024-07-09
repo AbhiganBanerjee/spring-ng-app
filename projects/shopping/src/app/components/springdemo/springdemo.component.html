@@ -1,0 +1,52 @@
+<body>
+    <div class="container-fluid font-monospace">
+
+        <header class="text-center mt-2">
+            <h1 [ngStyle]="isSmallScreen?textSmallClass:textLargeClass">
+                <img src="https://repository-images.githubusercontent.com/24195339/d4194dc2-d880-43f7-960c-ea30e05c6531" decoding="async"
+                    height="40"
+                >
+                <b style="color: #d52eaa;">Angular</b> & <b style="color: rgb(30, 135, 30);">Spring Boot</b>
+                <img src="https://avatars.githubusercontent.com/u/317776?v=4" decoding="async"
+                    height="40"
+                > Integration App 
+            </h1>
+        </header><hr/>
+    
+        <h3 class="font-monospace fw-bold fs-6">Select Attire</h3>
+        <div class="mt-2" >
+            <select (change)="CategoryChange($event)" name="category" id="category" class="form-select-sm">
+                <option *ngFor="let category of Categories"  [value]="category">{{category.toUpperCase()}}</option>
+            </select>
+        </div>
+        <hr/>
+        
+        <h2 [ngStyle]="isSmallScreen?textSmallClass:textLargeClass">My Love 🩵💙: <b style="color: skyblue;">Sreya</b><b style="color: darkblue;"> Mitra</b></h2>
+        <main [ngClass]="{'col-xl-12 d-flex overflow-auto':isLargeScreen,'col-sm-12':isSmallScreen}">
+            <mat-card *ngFor="let game of Games" class="example-card" [ngStyle]="isSmallScreen? smallScreenStyles : largeScreenStyles">
+                <mat-card-header>
+                  <img style="border: 2px solid darkblue;" mat-card-avatar [src]="game.image"/>
+                  <mat-card-title class="font-monospace fw-bold">{{game.title}}</mat-card-title>
+                  <mat-card-subtitle class="font-monospace" style="color: darkblue;">{{game.category}}</mat-card-subtitle>
+                </mat-card-header>
+                <img mat-card-image [src]="game.image" style="border: 2px solid darkblue;" height="300" alt="Photo of a Shiba Inu">
+                <mat-card-content>
+                  <p>
+                    Game1
+                  </p>
+                </mat-card-content>
+                <mat-card-actions>
+                    <button mat-mini-fab color="accent" aria-label="Example icon button with a menu icon">
+                        <mat-icon>favorite</mat-icon>
+                    </button>
+                    <div class="col-8">
+
+                    </div>
+                    <button mat-mini-fab color="primary" aria-label="Example icon button with a bookmark icon">
+                        <mat-icon>bookmark</mat-icon>
+                    </button>
+                </mat-card-actions>
+            </mat-card>
+        </main>
+    </div>    
+</body>

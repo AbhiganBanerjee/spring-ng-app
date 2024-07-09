@@ -1,0 +1,20 @@
+<div class="container-fluid">
+    <h2>Product Details</h2>
+    <dl>
+        <dt>Title</dt>
+        <dd>{{Product.title}}</dd>
+        <dt>Price</dt>
+        <dd>{{Product.price}}</dd>
+        <dt><button (click)="ToggleClick()" class="w-25 btn btn-warning">{{buttonText}}</button><p>Toggle</p></dt>
+        <dd *ngIf="true; then thenBlock">
+            <!-- This dd is the container that will dynamically change the templates
+                based on the required situation -->
+        </dd>
+        <ng-template class="w-25" #description>
+            {{Product.description}}
+        </ng-template>
+        <ng-template #preview>
+            <img [src]="Product.image" width="200" height="200"/>
+        </ng-template>
+    </dl>
+</div>

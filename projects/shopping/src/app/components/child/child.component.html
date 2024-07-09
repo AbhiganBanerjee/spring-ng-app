@@ -1,0 +1,18 @@
+<div class="container bg-white text-dark p-2" style="height: 200px;">
+    <h2>Child Component</h2>
+
+    <!-- Child will display the incoming msg from parent -->
+    <p>{{MsgFromParent}}</p>
+
+    <!-- Display the Product coming from Parent -->
+    <p>Name: {{Product.Name}} Price: {{Product.Price}}</p>
+
+    <!-- Give a button, it can be element dropdown,checkboxes etc -->
+    <button (click)="BtnClick()" class="btn btn-dark">Send Msg To Parent</button>
+
+    <!-- On this change event we require to emit the value using the Custom Event -->
+    <select (change)="SendProduct()">
+        <option>Select Product</option>
+        <option value="TV">TV</option>
+    </select>
+</div>

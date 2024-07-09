@@ -1,0 +1,23 @@
+<div class="bg-dark p-3 text-white" style="height: 520px;">
+    <h2>
+        Parent Component
+    </h2>
+
+    <!-- Display the message coming from child -->
+    <p>{{MsgFromChild}}</p>
+
+    <!-- Display the Product object, coming from Child -->
+    <dl>
+        <dt>Name</dt>
+        <dd>{{ProductFromChild.Name}}</dd>
+        <dt>Price</dt>
+        <dd>{{ProductFromChild.Price}}</dd>
+    </dl>
+
+    <!-- Sending the msg to child on button click -->
+    <button class="btn btn-light" (click)="SendMsg()">Send Msg To Child</button><br/><br/><br/>
+
+    <!-- Accessing Child Component using its selector -->
+    <!-- Configuring the Custom Child events and getting the emitted values -->
+    <app-child  (ChildComponentChange)="GetProduct($event)" class="mt-5" (ChildComponentClick)="GetMessage($event)" [MsgFromParent]="MsgToChild" [Product]="{Name:'Samsung TV', Price:45000.54}"></app-child>
+</div>

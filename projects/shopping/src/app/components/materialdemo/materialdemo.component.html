@@ -1,0 +1,9 @@
+<div class="container-fluid w-50">
+    <h2>Date Picker</h2>
+    <mat-form-field>
+        <mat-label>Departure Date</mat-label>
+        <input type="text" [matDatepicker]="departure" matInput>
+        <mat-datepicker-toggle [for]="departure" matSuffix></mat-datepicker-toggle>
+        <mat-datepicker #departure></mat-datepicker>
+    </mat-form-field>
+</div>

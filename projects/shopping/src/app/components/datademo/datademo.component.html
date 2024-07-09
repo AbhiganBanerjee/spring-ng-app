@@ -1,0 +1,17 @@
+<div class="container-fluid">
+    <h2>Categories</h2>
+    <!-- Display the categories coming from API roughly -->
+    <ol>
+        <li *ngFor="let item of Categories">
+            {{item.toUpperCase()}}
+        </li>
+    </ol>
+
+    <h2>Products</h2>
+    <!-- Roughly show the products coming from API -->
+    <ol>
+        <li *ngFor="let product of Products">
+            {{product.title}}
+        </li>
+    </ol>
+</div> 

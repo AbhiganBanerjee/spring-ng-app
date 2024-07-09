@@ -1,0 +1,26 @@
+<div>
+    <h2>Product Details</h2>
+    <dl>
+        <dt>Title</dt>
+        <!-- Accessing the title property from the Product object -->
+        <dd>{{Product.title}}</dd>
+        <dt>Preview</dt>
+        <dd>
+            <!-- Bind the src property with the image coming from API -->
+            <img width="100" height="100" [src]="Product.image"/>
+        </dd>
+        <dt>Price</dt>
+        <dd>$ {{Product.price}}</dd>
+        <dt>Rating</dt>
+        <dd>
+            <span class="bi bi-star-fill text-success"></span>
+            {{Product.rating.rate}} [{{Product.rating.count}}]
+        </dd>
+    </dl>
+    <!-- Create the next and prev buttons -->
+    <div>
+        <!-- &laque and &raque are general HTML entities to represent left and right arrow symbols -->
+        <button (click)="PrevClick()" class="btn btn-primary me-2">&laquo;</button>
+        <button (click)="NextClick()" class="btn btn-primary">&raquo;</button>
+    </div>
+</div>
