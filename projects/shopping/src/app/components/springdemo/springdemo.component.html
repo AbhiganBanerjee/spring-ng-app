@@ -30,6 +30,11 @@
                   <mat-card-subtitle class="font-monospace" style="color: darkblue;">{{game.category}}</mat-card-subtitle>
                 </mat-card-header>
                 <img mat-card-image [src]="game.image" style="border: 2px solid darkblue;" height="300" alt="Photo">
+                <mat-card-content class="text-center">
+                    <p class="font-monospace fw-bold">
+                      {{game.desc}}
+                    </p>
+                  </mat-card-content>
                 <mat-card-actions>
                     <button mat-mini-fab color="accent" aria-label="Example icon button with a menu icon">
                         <mat-icon>favorite</mat-icon>
