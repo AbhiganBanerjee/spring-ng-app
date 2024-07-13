@@ -25,11 +25,11 @@
         <main [ngClass]="{'col-xl-12 d-flex overflow-auto':isLargeScreen,'col-sm-12':isSmallScreen}">
             <mat-card *ngFor="let game of Games" class="example-card" [ngStyle]="isSmallScreen? smallScreenStyles : largeScreenStyles">
                 <mat-card-header>
-                  <img style="border: 2px solid black;" mat-card-avatar [src]="game.image"/>
+                  <img style="border: 2px solid darkblue;" mat-card-avatar [src]="game.image"/>
                   <mat-card-title class="font-monospace fw-bold" style="color: darkblue;">{{game.title}}</mat-card-title>
                   <mat-card-subtitle class="font-monospace" style="color: darkblue;">{{game.category}}</mat-card-subtitle>
                 </mat-card-header>
-                <img mat-card-image [src]="game.image" style="border: 2px solid black;" height="300" alt="Photo">
+                <img mat-card-image [src]="game.image" style="border: 2px solid darkblue;" height="300" alt="Photo">
                 <mat-card-content class="text-center" style="color: darkblue;">
                     <p class="font-monospace fw-bold">
                       {{game.desc}}
